@@ -17,7 +17,7 @@
     margin : 0 auto;
 }
 
-li{
+.Todo-card-wrapper{
     list-style: none;
     color : black;
     font-size : 1.2rem;
