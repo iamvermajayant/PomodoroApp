@@ -64,7 +64,7 @@ function Timer() {
 
   return (
     <div>
-      <h2>Timer</h2>
+      <h1 style={{textAlign: "center", marginBottom : "40px"}}>Pomodoro Todo App</h1>
       <CircularProgressbar
         value={percentage}
         text={minutes + ":" + seconds}
@@ -77,14 +77,14 @@ function Timer() {
       />
       <div className="icon-wrapper">
         {isPaused ? (
-          <PlayButton
+          <PlayButton style={{cursor : "pointer"}}
             onClick={() => {
               setIsPaused(false);
               isPausedRef.current = false;
             }}
           />
         ) : (
-          <PauseButton
+          <PauseButton style={{cursor : "pointer"}}
             onClick={() => {
               setIsPaused(true);
               isPausedRef.current = true;

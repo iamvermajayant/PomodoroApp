@@ -84,7 +84,7 @@ const Todo = (props) => {
 
   return (
     <div className="todo-container">
-      <h2>Hello</h2>
+      <h2>Add your Tasks !!</h2>
       <form onSubmit={handleSubmit}>
         <input
           className="input-wrapper"

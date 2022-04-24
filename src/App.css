@@ -1,6 +1,6 @@
 body{
   /* background-color: crimson; */
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #485395, #23d5ab);
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #333c6b, #23d5ab);
   animation: gradient 10s ease infinite;
   background-size: 400% 400%;
   color : #eee;

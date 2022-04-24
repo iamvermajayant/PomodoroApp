@@ -5,6 +5,8 @@ import Settings from "./Settings";
 import settingContext from "./settingContext";
 import Todo from "./todoApp/Todo.js";
 import Info from "./Info";
+import Footer from "./Footer";
+
 
 function App() {
   const [showsettings, setShowSettings] = useState(false);
@@ -26,6 +28,7 @@ function App() {
       </settingContext.Provider>
       {!showsettings && <Todo/>}
       {!showsettings && <Info/>}
+      <Footer/>
     </div>
    
   );

@@ -5,6 +5,7 @@ label{
 }
 .settings-wrapper{
     width : 40vw;
+    height: 100vh;
 }
 
 @media only screen and (max-width: 600px){

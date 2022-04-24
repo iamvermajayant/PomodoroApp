@@ -1,0 +1,23 @@
+.footer-wrapper{
+    height : 70px;
+    background-color: transparent;
+    width : 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    margin-bottom: 2rem;
+}
+
+.footer-icons-wrapper{
+    margin-top: 1rem;
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    justify-content:center;
+    margin-bottom: 1rem;
+}
+
+a{
+    color: #fff;
+}
