@@ -17,11 +17,21 @@ function Timer() {
   const secondsLeftRef = useRef(secondsLeft);
   const isPausedRef = useRef(isPaused);
   const modeRef = useRef(mode);
+  const alarmRef = useRef();
+  
+  
 
   const tick = () => {
     secondsLeftRef.current--;
     setSecondsLeft(secondsLeftRef.current);
   };
+  const timeup = () => {
+    //console.log(alarmRef.current);
+    //console.log(isPausedRef.current);
+    alarmRef.current && alarmRef.current.play();
+  }
+  
+
 
   useEffect(() => {
     const switchMode = () => {
@@ -49,8 +59,11 @@ function Timer() {
       tick();
     }, 1000);
 
+
     return () => clearInterval(interval);
   }, [settingsInfo]);
+  
+  
 
   const totalseconds =
     mode === "work"
@@ -62,9 +75,20 @@ function Timer() {
   let seconds = secondsLeft % 60;
   if (seconds < 10) seconds = "0" + seconds;
 
+  if(secondsLeft < 60){
+    timeup();
+  }
+
+  
   return (
     <div>
-      <h1 style={{textAlign: "center", marginBottom : "40px"}}>Pomodoro Todo App</h1>
+      <audio ref={alarmRef}>
+				<source src="/Alarm.mp3" type="audio/mp3" />
+				Your browser does not support the audio element.
+			</audio>
+      <h1 style={{ textAlign: "center", marginBottom: "40px" }}>
+        Pomodoro Todo App
+      </h1>
       <CircularProgressbar
         value={percentage}
         text={minutes + ":" + seconds}
@@ -77,21 +101,23 @@ function Timer() {
       />
       <div className="icon-wrapper">
         {isPaused ? (
-          <PlayButton style={{cursor : "pointer"}}
+          <PlayButton
+            style={{ cursor: "pointer" }}
             onClick={() => {
               setIsPaused(false);
               isPausedRef.current = false;
             }}
           />
         ) : (
-          <PauseButton style={{cursor : "pointer"}}
+          <PauseButton
+            style={{ cursor: "pointer" }}
             onClick={() => {
               setIsPaused(true);
               isPausedRef.current = true;
             }}
           />
         )}
-      </div>
+      </div>   
       <div className="button-wrapper">
         <Button onClick={() => settingsInfo.setShowSettings(true)}>
           Settings
