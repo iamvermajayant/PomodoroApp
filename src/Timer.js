@@ -6,6 +6,7 @@ import Button from "./Button";
 import "./Timer.css";
 import { useContext, useState, useEffect, useRef } from "react";
 import settingContext from "./settingContext";
+import AlarmSound from './Alarm.mp3';
 
 function Timer() {
   const settingsInfo = useContext(settingContext);
@@ -75,7 +76,7 @@ function Timer() {
   let seconds = secondsLeft % 60;
   if (seconds < 10) seconds = "0" + seconds;
 
-  if(secondsLeft < 60){
+  if(secondsLeft < 20){
     timeup();
   }
 
@@ -83,7 +84,7 @@ function Timer() {
   return (
     <div>
       <audio ref={alarmRef}>
-				<source src="/Alarm.mp3" type="audio/mp3" />
+				<source src={AlarmSound} type="audio/mp3" />
 				Your browser does not support the audio element.
 			</audio>
       <h1 style={{ textAlign: "center", marginBottom: "40px" }}>
